@@ -3,7 +3,7 @@
 const container = document.querySelector(".container");
 const table = document.querySelector(".table");
 const ul = document.querySelector("ul");
-
+let isLoading;
 
 const titles = [
   "id",
@@ -51,11 +51,28 @@ const getDataId = async () => {
   return dataArr;
 };
 
+const setLoading =(bool)=>{
+  if(bool){
+    const loading = document.createElement('div')
+    loading.classList.add('loader')
+    loading.textContent = ';)'
+    loading.style.color ='#db7c26'
+    ul.appendChild(loading)
+  }else{
+    const loading = document.querySelector('ul .loader')
+    loading.classList.remove('loader')
+    loading.classList.add('hide')
+    ul.removeChild(loading)
+  }
+}
+
 const studentsObj = { students: [] };
 const fetchUsers = async () => {
+  
   let arr = await getDataId();
-
+  
   let arr2 = [];
+ 
   for (let i = 0; i < arr.length; i++) {
     let id = arr[i];
     const fetch1 = (
@@ -63,8 +80,9 @@ const fetchUsers = async () => {
     ).json();
 
     arr2.push(fetch1);
+    
   }
-
+ 
   let fetchStudents = await Promise.all(arr2);
 
   return fetchStudents;
@@ -74,7 +92,8 @@ const fetchUsers = async () => {
 
 const createElementToHTML = async () => {
   const usersOBJ = await fetchUsers();
-
+  
+  
   for (let i of usersOBJ) {
     const { id, capsule, age, city, gender, firstName, lastName, hobby } = i;
 
@@ -124,7 +143,11 @@ const createElementToHTML = async () => {
     button4.textContent = "Confirm";
     button4.className = "hide btn4";
   }
+  
+  isLoading = false;
+  setLoading(isLoading)
 };
+
 function createElementToHTML2(test) {
   const usersOBJ = test;
   const ul2 = document.createElement("ul");
@@ -322,8 +345,15 @@ const resetTable = () => {
   });
 };
 
+const localStorageS = (call)=>{
+call = document.documentElement.innerHTML;
+localStorage.setItem('myPage', JSON.stringify(call));
+localStorage.getItem('myPage');
+}
 const start = async () => {
   await fetchUsers();
+  isLoading = true;
+  setLoading(isLoading)
   await createElementToHTML();
   // createElementToHTML2()
   buttonDeleteElement();
@@ -331,6 +361,7 @@ const start = async () => {
   resetTable();
   searchInput();
   buttonEditElement();
+  localStorageS('myPage')
 };
 // const localS = async ()=>{
 //   localStorage.setItem('ApiFetchUsers', await fetchUsers() );
