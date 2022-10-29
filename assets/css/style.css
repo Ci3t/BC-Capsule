@@ -5,14 +5,20 @@
 }
 
 body {
-  background-color: #01161e;
+  background-color: #0b090a;
 }
 
 .container .table {
   width: 100%;
-  margin-top: 5em;
+  margin-top: 2em;
   margin-left: auto;
   margin-right: auto;
+}
+.container .table h1 {
+  color: #db7c26;
+  text-align: center;
+  margin-right: 5em;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .container .table .searchWrapper {
   display: flex;
@@ -26,32 +32,34 @@ body {
   padding-left: 10px;
 }
 .container .table .searchWrapper input:focus {
-  accent-color: #598392;
+  accent-color: #1a1616;
 }
 .container .table .searchWrapper #reset {
   border-radius: 10px;
   margin-left: 1em;
   width: 10em;
   cursor: pointer;
-  background-color: #01161e;
-  border-color: rgb(147, 184, 226);
+  background-color: #660708;
+  border-color: rgb(226, 147, 147);
   font-size: 20px;
-  color: #598392;
+  color: #db7c26;
 }
 .container .table .searchWrapper #reset:hover {
-  background-color: #124559;
+  background-color: #1a1616;
 }
 .container .table ul {
   list-style: none;
   display: grid;
   justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .container .table ul .header {
-  background-color: #124559;
+  background-color: #660708;
   color: white;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: minmax(130px, 1fr) minmax(140px, 1fr);
+  padding: 4px 20px;
 }
 .container .table ul .header a {
   visibility: hidden;
@@ -63,23 +71,28 @@ body {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: minmax(20px, 1fr) minmax(20px, 1fr);
-  background-color: #598392;
+  background-color: #1a1616;
+  border-radius: 10px;
+  padding: 0 20px;
 }
 .container .table ul div li {
   display: grid;
   grid-template-columns: minmax(130px, 1fr) minmax(140px, 1fr);
   font-size: 20px;
-  border-bottom: 1px dotted white;
+  border-bottom: 1px dotted rgb(37, 64, 95);
+  width: min-content;
+  color: #db7c26;
 }
 .container .table ul div button {
   margin: 5px;
   padding: 2px 6px;
   cursor: pointer;
-  background-color: #01161e;
-  border-color: rgb(147, 184, 226);
+  background-color: #220901;
+  border-color: rgb(226, 205, 147);
   font-size: 20px;
-  color: #598392;
+  color: #f6aa1c;
+  border-radius: 6px;
 }
 .container .table ul div button:hover {
-  background-color: #124559;
+  background-color: #621708;
 }

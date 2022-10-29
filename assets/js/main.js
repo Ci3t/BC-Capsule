@@ -4,7 +4,7 @@ const container = document.querySelector(".container");
 const table = document.querySelector(".table");
 const ul = document.querySelector("ul");
 
-// let dataArr = []
+
 const titles = [
   "id",
   "Name",
@@ -25,10 +25,10 @@ const fetchData = async (url) => {
   } catch (e) {
     console.log(e);
   }
-  // console.log(data);
+
 };
 
-//
+
 const getDataId = async () => {
   const dataOne = await fetchData(
     "https://capsules7.herokuapp.com/api/group/one",
@@ -70,7 +70,7 @@ const fetchUsers = async () => {
   return fetchStudents;
 };
 
-const dataStructureObj = () => {};
+
 
 const createElementToHTML = async () => {
   const usersOBJ = await fetchUsers();
@@ -194,37 +194,20 @@ const buttonEditElement = async () => {
   console.log(button1);
   button1.forEach((e) => {
     e.addEventListener("click", () => {
-      // console.log(e.id);
+
       li.forEach((e) => {
         console.log(button4);
         if (e.id === "idx") {
           e.contentEditable = false;
         } else {
           e.contentEditable = true;
+          
         }
-        if (e.className === "btn3") {
-          e.classList.remove("hide");
-        }
+        
       });
     });
   });
-  // button4.forEach((e) => {
-  //   e.addEventListener("click", () => {
-  //     // console.log(e.id);
-  //     li.forEach(e=>{
-  //       console.log(button4);
-  //       if (e.className === 'btn3'){
-  //         e.classList.remove('hide')
 
-  //       }else{
-  //         e.contentEditable = true;
-  //       }
-
-  //     })
-
-  //   });
-
-  // });
 };
 const searchInput = async () => {
   const input = document.querySelector(".filter-input");
@@ -342,7 +325,7 @@ const resetTable = () => {
 const start = async () => {
   await fetchUsers();
   await createElementToHTML();
-
+  // createElementToHTML2()
   buttonDeleteElement();
   sortTable();
   resetTable();
